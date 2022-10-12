@@ -43,13 +43,13 @@ for file in file_names:
         current_time_array = np.arrange(current_igor_read.shape[0]) current_sampling_rate
         plt.plot(current_time_array, current_igor_read, label=file)
 
-    or use the .times attribute of the read-in igor file.
+    or use the .times attribute of the read igor file.
     """
     plt.plot(current_igor_read.times, current_igor_read, label=file)
 
 plt.plot(current_igor_read.times, all_igor_reads.mean(axis=1), lw=2.5, c="k", label="avrg.")
-plt.xlabel("time [ms]", fontsize=13)
-plt.ylabel("amplitude [a.u.]", fontsize=13)
+plt.xlabel("time [ms]", fontsize=13, fontweight="bold")
+plt.ylabel("amplitude [a.u.]", fontsize=13, fontweight="bold")
 plt.title("Reading patch clamp recordings with the neo package", fontsize=16, fontweight="bold")
 plt.legend(loc="upper right",fontsize=8)
 plt.xlim(0, current_igor_read.times[-1:])
@@ -72,8 +72,8 @@ plt.clf()
 plt.plot(current_igor_read.times, dummy_read)
 plt.plot(current_igor_read.times[current_spike_mask],
          dummy_read.as_array().flatten()[current_spike_mask], '.', ms=10)
-plt.xlabel("time [ms]", fontsize=13)
-plt.ylabel("amplitude [a.u.]", fontsize=13)
+plt.xlabel("time [ms]", fontsize=13, fontweight="bold")
+plt.ylabel("amplitude [a.u.]", fontsize=13, fontweight="bold")
 plt.title("Spike detection", fontsize=16, fontweight="bold")
 plt.xlim(0, current_igor_read.times[-1:])
 plt.tight_layout()
